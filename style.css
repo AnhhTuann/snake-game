@@ -46,5 +46,5 @@ body {
 }
 .play-board .head {
   background-color: #ffc857;
-  border-radius: 50%;
+  border-radius: 5px;
 }
