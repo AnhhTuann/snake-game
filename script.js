@@ -37,12 +37,18 @@ const initGame = () => {
     snakeBody.push([foodX, foodY]);
   }
 
+  for (let i = snakeBody.length - 1; i > 0; i--) {
+    snakeBody[i] = snakeBody[i - 1];
+    
+  }
+  snakeBody[0] = [snakeX, snakeY];
+
   snakeX += velocityX;
   snakeY += velocityY;
+
   for (let i = 0; i < snakeBody.length; i++) {
-    const element = array[i];
+    htmlMarkup += `<div class='head' style='grid-area: ${snakeBody[i][1]} / ${snakeBody[i][0]}'></div>`;
   }
-  htmlMarkup += `<div class='head' style='grid-area: ${snakeY} / ${snakeX}'></div>`;
   playBoard.innerHTML = htmlMarkup;
 };
 changeFoodPosition();
